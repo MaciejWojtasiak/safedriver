@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">SafeDriver</string>
+    <string name="logInText">Zaloguj się</string>
+    <string name="signInText">Nie masz konta? Utwórz je</string>
+    <string name="welcomeText">Witaj w SafeDriver,             uzupełnij swoje dane </string>
+    <string name="userFirstName">Imię</string>
+    <string name="userLastName">Nazwisko</string>
+    <string name="userAge">Wiek</string>
+    <string name="userContactToFamily">Nr do najbliższej osoby</string>
+    <string name="title_activity_weather_panel">WeatherPanel</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
+</resources>
