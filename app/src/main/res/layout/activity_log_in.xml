@@ -36,6 +36,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:onClick="saveOnClick"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.829"
@@ -58,7 +59,7 @@
         app:layout_constraintVertical_bias="0.55">
 
         <ImageView
-            android:id="@+id/imageView5"
+            android:id="@+id/element1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
@@ -74,10 +75,10 @@
             app:srcCompat="@drawable/cpr" />
 
         <ImageView
-            android:id="@+id/imageView8"
+            android:id="@+id/element2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/imageView5"
+            android:layout_below="@+id/element1"
             android:layout_centerHorizontal="true"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -88,12 +89,12 @@
             app:srcCompat="@drawable/cpr" />
 
         <ImageView
-            android:id="@+id/imageView6"
+            android:id="@+id/element4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/imageView9"
-            android:layout_alignStart="@+id/imageView9"
-            android:layout_below="@+id/imageView9"
+            android:layout_alignLeft="@+id/element3"
+            android:layout_alignStart="@+id/element3"
+            android:layout_below="@+id/element3"
             android:layout_marginTop="12dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -104,10 +105,10 @@
             app:srcCompat="@drawable/cpr" />
 
         <ImageView
-            android:id="@+id/imageView9"
+            android:id="@+id/element3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/imageView8"
+            android:layout_below="@+id/element2"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="11dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -122,7 +123,7 @@
             android:id="@+id/firstName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/imageView5"
+            android:layout_alignBottom="@+id/element1"
             android:layout_centerHorizontal="true"
             android:ems="10"
             android:fontFamily="@font/amethysta"
@@ -133,7 +134,7 @@
             android:id="@+id/lastName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/imageView8"
+            android:layout_alignBottom="@+id/element2"
             android:layout_alignEnd="@+id/firstName"
             android:layout_alignRight="@+id/firstName"
             android:ems="10"
@@ -145,7 +146,7 @@
             android:id="@+id/age"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/imageView6"
+            android:layout_above="@+id/element4"
             android:layout_alignLeft="@+id/lastName"
             android:layout_alignStart="@+id/lastName"
             android:ems="10"
@@ -157,7 +158,7 @@
             android:id="@+id/contactFamily"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/imageView6"
+            android:layout_alignBottom="@+id/element4"
             android:layout_alignLeft="@+id/age"
             android:layout_alignStart="@+id/age"
             android:ems="10"
