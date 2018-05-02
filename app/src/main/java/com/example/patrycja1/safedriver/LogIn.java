@@ -1,7 +1,7 @@
 package com.example.patrycja1.safedriver;
 
 import android.content.Context;
-import android.content.SharedPreferences;
+import android.content.Intent;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -14,6 +14,7 @@ public class LogIn extends AppCompatActivity {
 
     private ImageView[] viewElements=new ImageView[5];
     private TextView [] userDataElements=new TextView[5];
+    private boolean loginStatus=false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,28 +56,28 @@ public class LogIn extends AppCompatActivity {
 
     public void writeToMemory(){
 
-        Context context=getApplicationContext();
-        String firstName=userDataElements[0].getText().toString();
-        String lastName=userDataElements[1].getText().toString();
-        String age=userDataElements[2].getText().toString();
-        String contact=userDataElements[3].getText().toString();
         ParseData parse =new ParseData();
+        MemoryOperation writeToMem=new MemoryOperation();
+        Context context=getApplicationContext();
 
-
-        // if data is correctly seved to "general_preferences"
-        // parse method in ParseData class check correctnes of data entered by the user
-        SharedPreferences.Editor editor = getSharedPreferences("general_preferences", MODE_PRIVATE).edit();
-        editor.putString("FIRSTNAME",parse.parse(firstName,context));
-        editor.putString("LASTNAME",parse.parse(lastName,context));
-        editor.putString("AGE",parse.correctlyAge(age,context));
-        editor.putString("CONTACT",parse.correctlyNumber(contact,context));
-        editor.apply();
+        String firstName=parse.parse(userDataElements[0].getText().toString(),context);
+        String lastName=parse.parse(userDataElements[1].getText().toString(),context);
+        String age=parse.correctlyAge(userDataElements[2].getText().toString(),context);
+        String contact=parse.correctlyNumber(userDataElements[3].getText().toString(),context);
 
         //if user data correctly saved, set toast "Zapisano"
         if(parse.registrationFlag()!=0){
-            Toast.makeText(getApplicationContext(),"Spróbuj jeszcze raz", Toast.LENGTH_SHORT).show();
+            loginStatus=false;
         }else{
-            Toast.makeText(getApplicationContext(),"Zapisano", Toast.LENGTH_SHORT).show();
+            // if data is correctly seved to "general_preferences"
+            // parse method in ParseData class check correctnes of data entered by the user
+            writeToMem.writeToMemory(context,"FIRSTNAME",parse.parse(firstName,context));
+            writeToMem.writeToMemory(context,"LASTNAME",parse.parse(lastName,context));
+            writeToMem.writeToMemory(context,"AGE",parse.correctlyAge(age,context));
+            writeToMem.writeToMemory(context,"CONTACT",parse.correctlyNumber(contact,context));
+            loginStatus=true;
+            Toast.makeText(getApplicationContext(), R.string.saved, Toast.LENGTH_SHORT).show();
+
         }
 
     }
@@ -84,5 +85,11 @@ public class LogIn extends AppCompatActivity {
     public void saveOnClick(View view) {
         // if user click save button, he's data saved to memory["general_preferences"]
         writeToMemory();
+        if(loginStatus){
+            Intent intent = new Intent(getApplicationContext(),WeatherPanel.class);
+            startActivity(intent);
+        }else{
+            Toast.makeText(getApplicationContext(), R.string.correct_data, Toast.LENGTH_SHORT).show();
+        }
     }
 }
