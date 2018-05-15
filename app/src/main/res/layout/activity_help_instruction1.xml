@@ -46,7 +46,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="Krok 3"
+        android:text="Krok 4"
         android:textColor="@android:color/black"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -65,13 +65,12 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:gravity="center"
-        android:text="Po wykonaniu 15 uciśnięć klatki piersiowej , jedną ręką zatkaj poszkodowanemu nos, drugą przytrzymaj brodę . Po wykonaniu tych czynności możesz przystąpić do sztucznego oddychania"
+        android:text="Po wykonaniu 30 uciśnięć klatki piersiowej, wykonaj 2 oddechy ratownicze. Szczelnie obejmij swoimi ustami usta poszkodowanego i wdmuchnij tyle powietrza, aby uniosła sięklatka pierdsiowa poszkodowanego."
         android:textColor="@android:color/holo_orange_light"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.511"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.756" />
+        app:layout_constraintVertical_bias="0.752" />
 </android.support.constraint.ConstraintLayout>
