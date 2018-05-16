@@ -15,13 +15,14 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class WeatherPanel extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
 
     public Button btn_1; //potrzebne do testu TextToSpeech
-    public void init(){
+    public void init1(){
 
          btn_1=(Button)findViewById(R.id.btn_1);
          btn_1.setOnClickListener(new View.OnClickListener() {
@@ -69,7 +70,7 @@ public class WeatherPanel extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-        init(); //potrzebne tylko do testu TextToSpeech
+        init1(); //potrzebne tylko do testu TextToSpeech
     }
 
     @Override

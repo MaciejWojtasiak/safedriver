@@ -1,5 +1,6 @@
 package com.example.patrycja1.safedriver;
 
+import android.content.Intent;
 import android.os.Build;
 import android.speech.tts.TextToSpeech;
 import android.support.v7.app.AppCompatActivity;
@@ -14,6 +15,22 @@ import java.util.Locale;
 
 public class HelpInstruction0 extends AppCompatActivity {
 
+    public Button btn_2;
+    public void init2(){
+        btn_2=(Button)findViewById(R.id.btn_2);
+
+        btn_2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent przejscie2 = new Intent(HelpInstruction0.this,HelpInstruction01.class);
+                startActivity(przejscie2);
+
+            }
+        });
+
+
+        }
+
     TextView help0text;
     TextToSpeech komunikat1;
 
@@ -27,18 +44,18 @@ public class HelpInstruction0 extends AppCompatActivity {
             public void onInit(int status) {
 
                 if(status == komunikat1.SUCCESS){
-                    int result = komunikat1.setLanguage(new Locale("PL","PL"));
-                    if(result == TextToSpeech.LANG_MISSING_DATA ||
-                            result == TextToSpeech.LANG_NOT_SUPPORTED)
+                    int result = komunikat1.setLanguage(new Locale("PL","PL"));  //wybór języka
+                    if(result == TextToSpeech.LANG_MISSING_DATA ||        //sprawdzenie czy jezyk jest na urzadzeniu
+                            result == TextToSpeech.LANG_NOT_SUPPORTED)   //sprawdzenie czy jezyk jest wspierany
 
                     {
-                        Toast.makeText(HelpInstruction0.this,"This language is not supported", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(HelpInstruction0.this,"This language is not supported", Toast.LENGTH_SHORT).show(); //komunikat błędu
                     }
-                    else
+                    else //jeżeli wszystkie powyższe warunki są spełnione, można użyć metody speak
                     {
 
-                        komunikat1.setPitch(0.6f);
-                        komunikat1.setSpeechRate(1.0f);
+                        komunikat1.setPitch(0.6f);      //intonacja
+                        komunikat1.setSpeechRate(1.0f); //szybkość
                         speak();
                     }
                 }
@@ -46,16 +63,13 @@ public class HelpInstruction0 extends AppCompatActivity {
             }
         });
         help0text = (TextView)findViewById(R.id.help0text);
-
+      init2();  //ta funkcja obsługuje naciśnięcie przycisku prześcia do kolejnego kroku
 
     }
 
     private void speak() {
-        String text=help0text.getText().toString();
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
-            komunikat1.speak(text,TextToSpeech.QUEUE_FLUSH,null,null);
-        else
-            komunikat1.speak(text,TextToSpeech.QUEUE_FLUSH,null);
+        String text=help0text.getText().toString();  //zamiana instrukcji pp na string
+        komunikat1.speak(text,TextToSpeech.QUEUE_FLUSH,null); // kod odpowiedzialny za mówienie wyżej zamienionego teksu
     }
 
 
