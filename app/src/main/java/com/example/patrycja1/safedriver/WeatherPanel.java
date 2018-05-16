@@ -1,5 +1,6 @@
 package com.example.patrycja1.safedriver;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -13,9 +14,34 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 
 public class WeatherPanel extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+
+    public Button btn_1; //potrzebne do testu TextToSpeech
+    public void init(){
+
+         btn_1=(Button)findViewById(R.id.btn_1);
+         btn_1.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View view) {
+                 Intent przejscie = new Intent(WeatherPanel.this,HelpInstruction0.class);
+                startActivity(przejscie);
+             }
+         });
+
+
+    }
+
+
+
+
+
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +69,7 @@ public class WeatherPanel extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        init(); //potrzebne tylko do testu TextToSpeech
     }
 
     @Override

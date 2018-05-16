@@ -66,7 +66,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:gravity="center"
-        android:text='Sprawdź czy poszkowodany jest przytomny. Podejdź ostrożnie do poszkodowanego, delikatnie potrząśnij za ramiona i głośno zapytaj: "Czy wszystko w porządku?"'
+        android:text='Sprawdź czy poszkodowany jest przytomny. Podejdź ostrożnie do poszkodowanego, delikatnie potrząśnij za ramiona i głośno zapytaj: "Czy wszystko w porządku?"'
         android:textColor="@android:color/holo_orange_light"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"

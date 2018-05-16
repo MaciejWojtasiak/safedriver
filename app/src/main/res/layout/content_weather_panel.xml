@@ -9,4 +9,11 @@
     tools:context="com.example.patrycja1.safedriver.WeatherPanel"
     tools:showIn="@layout/app_bar_weather_panel">
 
+    <Button
+        android:id="@+id/btn_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Przejście do 1 pomocy"
+        tools:layout_editor_absoluteX="117dp"
+        tools:layout_editor_absoluteY="122dp" />
 </android.support.constraint.ConstraintLayout>

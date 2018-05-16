@@ -59,8 +59,6 @@ public class HelpInstruction0 extends AppCompatActivity {
     }
 
 
-
-
     @Override
     protected void onDestroy() {
         if(komunikat1 != null)
