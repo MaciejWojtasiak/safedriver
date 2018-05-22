@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/helptlo"
-    tools:context=".HelpInstruction1">
+    tools:context=".help.HelpInstruction1">
 
     <ImageView
         android:id="@+id/help1Image"

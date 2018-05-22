@@ -3,11 +3,11 @@ package com.example.patrycja1.safedriver;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class HelpInstruction3 extends AppCompatActivity {
+public class AlarmActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_help_instruction3);
+        setContentView(R.layout.activity_alarm);
     }
 }

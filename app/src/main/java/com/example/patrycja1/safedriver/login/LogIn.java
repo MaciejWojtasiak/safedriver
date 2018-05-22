@@ -1,14 +1,18 @@
-package com.example.patrycja1.safedriver;
+package com.example.patrycja1.safedriver.login;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.patrycja1.safedriver.ElementAnimator;
+import com.example.patrycja1.safedriver.MemoryOperation;
+import com.example.patrycja1.safedriver.R;
+import com.example.patrycja1.safedriver.WeatherPanel;
 
 public class LogIn extends AppCompatActivity {
 
@@ -20,8 +24,6 @@ public class LogIn extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log_in);
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.hide();
 
         // find elements by id
         viewElements[0]=findViewById(R.id.element1);
@@ -38,6 +40,14 @@ public class LogIn extends AppCompatActivity {
         //animate activity elements
         animateElements(viewElements);
         animateElements(userDataElements);
+       /* viewElements[4].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                }
+
+            }
+        });*/
 
     }
 
@@ -47,9 +57,9 @@ public class LogIn extends AppCompatActivity {
         ElementAnimator animator=new ElementAnimator();
         for(int i=0;i<elementsTable.length;i++){
             if(i%2==0){
-                animator.goLeftElement(elementsTable[i],context);
-            }else{
                 animator.goRightElement(elementsTable[i],context);
+            }else{
+                animator.goLeftElement(elementsTable[i],context);
             }
         }
     }

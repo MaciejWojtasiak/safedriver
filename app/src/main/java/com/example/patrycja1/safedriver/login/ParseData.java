@@ -1,4 +1,4 @@
-package com.example.patrycja1.safedriver;
+package com.example.patrycja1.safedriver.login;
 
 import android.content.Context;
 import android.widget.Toast;
@@ -17,7 +17,6 @@ public class ParseData {
 
     public String parse(String data, Context context){
         if((data.isEmpty()) || (data==null) || (data.length()==0)){
-            Toast.makeText(context, R.string.error_data, Toast.LENGTH_SHORT).show();
             registrationFlag+=1;
         }
         return data;
@@ -25,7 +24,6 @@ public class ParseData {
 
     public String correctlyAge(String age,Context context){
         if((age.length()==0) || (age.length()>2)|| (age.isEmpty())){
-            Toast.makeText(context, R.string.error_data, Toast.LENGTH_SHORT).show();
             registrationFlag+=1;
         }
         return age;
@@ -33,7 +31,6 @@ public class ParseData {
 
     public String correctlyNumber(String number,Context context){
         if((number.length()>9) || (number.length()<9)|| (number.isEmpty())){
-            Toast.makeText(context, R.string.error_data, Toast.LENGTH_SHORT).show();
             registrationFlag+=1;
         }
         return number;

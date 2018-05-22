@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/helptlo"
-    tools:context="com.example.patrycja1.safedriver.HelpInstruction2">
+    tools:context="com.example.patrycja1.safedriver.help.HelpInstruction2">
 
     <ImageView
         android:id="@+id/help1Image"

@@ -1,5 +1,6 @@
 package com.example.patrycja1.safedriver;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -23,8 +24,7 @@ public class WeatherPanel extends AppCompatActivity
         setContentView(R.layout.activity_weather_panel);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.hide();
+
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -88,6 +88,8 @@ public class WeatherPanel extends AppCompatActivity
         } else if (id == R.id.help) {
 
         } else if (id == R.id.abautApplication) {
+            Intent intent = new Intent(getApplicationContext(),AboutApplication.class);
+            startActivity(intent);
 
         } else if (id == R.id.dataPerson) {
 
