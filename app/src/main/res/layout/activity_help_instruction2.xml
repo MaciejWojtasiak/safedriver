@@ -32,10 +32,10 @@
         android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.952"
+        app:layout_constraintVertical_bias="0.947"
         app:srcCompat="@drawable/cpr" />
 
     <TextView
@@ -46,7 +46,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="Krok 2"
+        android:text="Krok 3"
         android:textColor="@android:color/black"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -65,7 +65,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:gravity="center"
-        android:text="-----------------------------"
+        android:text="Wykonaj 30 uciśnięć klatki piersiowej (splecione, wyprostowane w łokciach ręce ułuż na środku, uciskaj w tempie co najmniej 100 uciśnięć na minutę, tak aby ugięła się ona na głębokość co najmniej 5 cm)"
         android:textColor="@android:color/holo_orange_light"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"

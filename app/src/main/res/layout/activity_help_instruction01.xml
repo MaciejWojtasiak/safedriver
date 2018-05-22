@@ -65,7 +65,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:gravity="center"
-        android:text="-----------------------------"
+        android:text="Oceń czy poszkowodwany oddycha. Oceń prawidłowość oddechu wzrokiem, słuchem i czuciem. Pochyl się nad poszkodowanym, tak by wyczuć ruch wydychanego powietrza, jednocześnie obserwując ruchy klatki piersiowej."
         android:textColor="@android:color/holo_orange_light"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
