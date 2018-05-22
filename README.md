@@ -1,1 +1,2 @@
-# pam-2018-e5c1s1-safedriver
+# SafeDriver
+Prezentacje dotyczące projektu oraz grafiki
