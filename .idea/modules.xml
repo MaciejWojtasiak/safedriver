@@ -2,10 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/SafeDriver.iml" filepath="$PROJECT_DIR$/SafeDriver.iml" />
+      <module fileurl="file://C:\AndroidStudioProjects\PAM\SafeDriver\[SafeDriver]\SafeDriver.iml" filepath="C:\AndroidStudioProjects\PAM\SafeDriver\[SafeDriver]\SafeDriver.iml" />
+      <module fileurl="file://$PROJECT_DIR$/[SafeDriver].iml" filepath="$PROJECT_DIR$/[SafeDriver].iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/pam-2018-e5c1s1-safedriver.iml" filepath="$PROJECT_DIR$/pam-2018-e5c1s1-safedriver.iml" />
+      <module fileurl="file://C:\AndroidStudioProjects\PAM\SafeDriver\[SafeDriver]\app\app.iml" filepath="C:\AndroidStudioProjects\PAM\SafeDriver\[SafeDriver]\app\app.iml" />
+      <module fileurl="file://C:\AndroidStudioProjects\PAM\SafeDriver\[SafeDriver]\pam-2018-e5c1s1-safedriver.iml" filepath="C:\AndroidStudioProjects\PAM\SafeDriver\[SafeDriver]\pam-2018-e5c1s1-safedriver.iml" />
     </modules>
   </component>
 </project>

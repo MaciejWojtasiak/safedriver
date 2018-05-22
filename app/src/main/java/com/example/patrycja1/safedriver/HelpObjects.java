@@ -10,10 +10,10 @@ import android.widget.ImageView;
 
 public enum HelpObjects {
 
-    KROK1(1," ",R.drawable.vitalsigns," KROK 1 "),
-    KROK2(2," ",R.drawable.breath," KROK 2 "),
-    KROK3(3," ",R.drawable.breathgive," KROK 3 "),
-    KROK4(4," ",R.drawable.push," KROK 4 "),
+    KROK1(1,"Sprawdź czy poszkowodany jest przytomny. Podejdź ostrożnie do poszkodowanego, delikatnie potrząśnij za ramiona i głośno zapytaj:Czy wszystko w porządku?",R.drawable.vitalsigns," KROK 1 "),
+    KROK2(2,"Oceń czy poszkowodwany oddycha. Oceń prawidłowość oddechu wzrokiem, słuchem i czuciem. Pochyl się nad poszkodowanym, tak by wyczuć ruch wydychanego powietrza, jednocześnie obserwując ruchy klatki piersiowej.",R.drawable.push," KROK 2 "),
+    KROK3(3,"Wykonaj 30 uciśnięć klatki piersiowej (splecione, wyprostowane w łokciach ręce ułuż na środku, uciskaj w tempie co najmniej 100 uciśnięć na minutę, tak aby ugięła się ona na głębokość co najmniej 5 cm) ",R.drawable.breathgive," KROK 3 "),
+    KROK4(4,"Po wykonaniu 30 uciśnięć klatki piersiowej, wykonaj 2 oddechy ratownicze. Szczelnie obejmij swoimi ustami usta poszkodowanego i wdmuchnij tyle powietrza, aby uniosła sięklatka pierdsiowa poszkodowanego. ",R.drawable.breath," KROK 4 "),
     KROK5(5," ",R.drawable.side," KROK 5 ");
 
 
