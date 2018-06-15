@@ -1,11 +1,26 @@
 package com.example.patrycja1.safedriver;
 
-
+import android.location.Location;
 import android.graphics.Typeface;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Html;
 import android.widget.TextView;
+import android.Manifest;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.location.LocationListener;
+import android.location.LocationManager;
+import android.os.Build;
+import android.provider.Settings;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.v4.app.ActivityCompat;
+import android.view.View;
+
+
 
 public class WeatherPanel extends AppCompatActivity {
 
@@ -16,11 +31,11 @@ public class WeatherPanel extends AppCompatActivity {
 
     Typeface weatherFont;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getSupportActionBar().hide();
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.content_weather_panel);
 
 
         weatherFont = Typeface.createFromAsset(getAssets(), "fonts/weathericons-regular-webfont.ttf");
@@ -42,17 +57,39 @@ public class WeatherPanel extends AppCompatActivity {
                 updatedField.setText(weather_updatedOn);
                 detailsField.setText(weather_description);
                 currentTemperatureField.setText(weather_temperature);
-                humidity_field.setText("Humidity: "+weather_humidity);
-                pressure_field.setText("Pressure: "+weather_pressure);
+                humidity_field.setText("Wilgotność: "+weather_humidity);
+                pressure_field.setText("Ciśnienie: "+weather_pressure);
                 weatherIcon.setText(Html.fromHtml(weather_iconText));
 
             }
         });
-        asyncTask.execute("25.180000", "89.530000"); //  asyncTask.execute("Latitude", "Longitude")
-
-
+        asyncTask.execute("51.9537506", "19.1343787"); //  asyncTask.execute("Latitude", "Longitude")
 
     }
+    private class Location {
+
+        private LocationManager locationManager;
+        private LocationListener listener;
+
+        locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
+
+        LocationManager locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
+
+
+        LocationListener locationListener = new LocationListener() {
+
+            public void onLocationChanged(Location location) {
+            }
+
+            public void onStatusChanged(String provider, int status, Bundle extras) {}
+
+            public void onProviderEnabled(String provider) {}
+
+            public void onProviderDisabled(String provider) {}
+        };
+
+
+            }
 
 
 }

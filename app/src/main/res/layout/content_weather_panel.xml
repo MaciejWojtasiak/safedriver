@@ -16,8 +16,9 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:textColor="#FFFFFF"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:textColor="#FFFF00"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:fontFamily="@font/amethysta"/>
 
     <TextView
         android:id="@+id/updated_field"
@@ -25,9 +26,10 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/city_field"
         android:layout_centerHorizontal="true"
-        android:textColor="#FFFFFF"
+        android:textColor="#FFFF00"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textSize="13sp" />
+        android:textSize="13sp"
+        android:fontFamily="@font/amethysta"/>
 
     <TextView
         android:id="@+id/weather_icon"
@@ -35,7 +37,7 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="#FFFFFF"
+        android:textColor="#FFFF00"
         android:textSize="90sp" />
     <TextView
         android:id="@+id/current_temperature_field"
@@ -43,9 +45,10 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:textColor="#FFFFFF"
+        android:textColor="#FFFF00"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textSize="50sp" />
+        android:textSize="50sp"
+        android:fontFamily="@font/amethysta"/>
 
     <TextView
         android:id="@+id/details_field"
@@ -53,17 +56,20 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/weather_icon"
         android:layout_centerHorizontal="true"
-        android:textColor="#FFFFFF"
+        android:textColor="#FFFF00"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        />
+        android:fontFamily="@font/amethysta"/>
+
+
     <TextView
         android:id="@+id/humidity_field"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/details_field"
         android:layout_centerHorizontal="true"
-        android:textColor="#FFFFFF"
+        android:textColor="#FFFF00"
         android:textAppearance="?android:attr/textAppearanceMedium"
+        android:fontFamily="@font/amethysta"
         />
     <TextView
         android:id="@+id/pressure_field"
@@ -71,8 +77,9 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/humidity_field"
         android:layout_centerHorizontal="true"
-        android:textColor="#FFFFFF"
+        android:textColor="#FFFF00"
         android:textAppearance="?android:attr/textAppearanceMedium"
+        android:fontFamily="@font/amethysta"
         />
 
 
