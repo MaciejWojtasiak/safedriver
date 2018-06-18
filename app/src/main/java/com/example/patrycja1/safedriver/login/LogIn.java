@@ -56,8 +56,6 @@ public class LogIn extends AppCompatActivity {
             mNotificationManager.createNotificationChannel(channel);
         }
 
-
-
     }
 
     public void animateElements(View[] elementsTable){

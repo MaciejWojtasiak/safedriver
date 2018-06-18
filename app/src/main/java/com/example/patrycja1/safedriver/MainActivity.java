@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(),"Nie znaleziono żadnego użytkownika", Toast.LENGTH_SHORT).show();
 
                 }else {
-                    Intent intent = new Intent(getApplicationContext(), AlarmActivity.class);
+                    Intent intent = new Intent(getApplicationContext(), WeatherPanel.class);
                     startActivity(intent);
                 }
             }

@@ -86,6 +86,7 @@ public class AlarmService extends Service {
         Intent stopIntent = new Intent(this, StopAlarmListener.class);
         PendingIntent pendingstopIntent = PendingIntent.getBroadcast(this, 0, stopIntent, 0);
 
+
         notificationView.setOnClickPendingIntent(R.id.start, pendingstartIntent);
         notificationView.setOnClickPendingIntent(R.id.stop, pendingstopIntent);
         Notification noti =
@@ -96,11 +97,12 @@ public class AlarmService extends Service {
                         .build();
 
         // Hide the notification after its selected
-        noti.flags |= Notification.FLAG_AUTO_CANCEL;
+        noti.flags |= Notification.FLAG_NO_CLEAR;
 
         NotificationManager mNotificationManager =
                 (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         // mId allows you to update the notification later on.
         mNotificationManager.notify((int) System.currentTimeMillis(), noti);
+
     }
 }

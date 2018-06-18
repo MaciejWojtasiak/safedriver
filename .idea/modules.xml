@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-<<<<<<< HEAD
       <module fileurl="file://$PROJECT_DIR$/[SafeDriver].iml" filepath="$PROJECT_DIR$/[SafeDriver].iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-=======
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/pam-2018-e5c1s1-safedriver.iml" filepath="$PROJECT_DIR$/pam-2018-e5c1s1-safedriver.iml" />
->>>>>>> c45467b91c8014dd50b14801ae7073e7ba46a903
     </modules>
   </component>
 </project>
