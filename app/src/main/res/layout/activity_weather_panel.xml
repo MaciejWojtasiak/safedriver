@@ -21,6 +21,7 @@
         android:background="@drawable/manro"
         android:fitsSystemWindows="true"
         app:headerLayout="@layout/nav_header_weather_panel"
+        app:itemTextColor="@android:color/holo_orange_light"
         app:menu="@menu/activity_weather_panel_drawer" />
 
 </android.support.v4.widget.DrawerLayout>
