@@ -5,10 +5,6 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/myData"
-            android:icon="@android:drawable/star_big_off"
-            android:title="Moje dane" />
-        <item
             android:id="@+id/help"
             android:icon="@drawable/ic_menu_slideshow"
             android:title="Pierwsza pomoc" />
@@ -25,10 +21,6 @@
                 android:id="@+id/dataPerson"
                 android:icon="@drawable/ic_wb_sunny_black_24dp"
                 android:title="Edytuj dane" />
-            <item
-                android:id="@+id/settings"
-                android:icon="@drawable/ic_menu_manage"
-                android:title="Ustawienia" />
             <item
                 android:id="@+id/shutDown"
                 android:icon="@drawable/ic_menu_send"

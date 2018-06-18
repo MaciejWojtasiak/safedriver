@@ -1,6 +1,10 @@
 package com.example.patrycja1.safedriver;
 
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -15,15 +19,20 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.patrycja1.safedriver.help.HelpInstruction0;
+import com.example.patrycja1.safedriver.login.LogIn;
+import com.example.patrycja1.safedriver.services.AlarmService;
+
 public class WeatherPanel extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-
+    public static String CHANNEL_ID = "ChannelID";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_weather_panel);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().hide();
 
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -43,6 +52,18 @@ public class WeatherPanel extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        Intent intent = new Intent(getApplicationContext(), AlarmService.class);
+        startService(intent);
+
+        int importance = NotificationManager.IMPORTANCE_DEFAULT;
+
+        if (Build.VERSION.SDK_INT >= 26) {
+            NotificationChannel channel = new NotificationChannel(CHANNEL_ID, "My Channel", importance);
+            NotificationManager mNotificationManager = (NotificationManager) getSystemService(
+                    Context.NOTIFICATION_SERVICE);
+            mNotificationManager.createNotificationChannel(channel);
+        }
     }
 
     @Override
@@ -83,19 +104,24 @@ public class WeatherPanel extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.myData) {
-            // Handle the camera action
-        } else if (id == R.id.help) {
+
+         if (id == R.id.help) {
+             Intent intent = new Intent(getApplicationContext(),HelpInstruction0.class);
+             startActivity(intent);
 
         } else if (id == R.id.abautApplication) {
             Intent intent = new Intent(getApplicationContext(),AboutApplication.class);
             startActivity(intent);
 
         } else if (id == R.id.dataPerson) {
-
-        } else if (id == R.id.settings) {
+            Intent intent = new Intent(getApplicationContext(),LogIn.class);
+            startActivity(intent);
 
         } else if (id == R.id.shutDown) {
+            MemoryOperation memoryOperation=new MemoryOperation();
+            memoryOperation.deleteData(getApplicationContext());
+             Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+             startActivity(intent);
 
         }
 

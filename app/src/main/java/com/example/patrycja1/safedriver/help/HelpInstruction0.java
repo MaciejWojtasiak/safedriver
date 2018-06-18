@@ -55,9 +55,9 @@ public class HelpInstruction0 extends AppCompatActivity {
         helpImage=findViewById(R.id.help0Image);
         helpInstuction=findViewById(R.id.help0text);
         helpInfo=findViewById(R.id.instructionNumber);
-        //long startTime = System.currentTimeMillis();
-       // timerHandler.postDelayed(timerRunnable, 0);
-        setContainers(4);
+        long startTime = System.currentTimeMillis();
+        timerHandler.postDelayed(timerRunnable, 0);
+        //setContainers(4);
         Toast.makeText(getApplicationContext()," Uważnie wysłuchaj instrukcji ...", Toast.LENGTH_SHORT).show();
         komunikat1 = new TextToSpeech(this, new TextToSpeech.OnInitListener() {
             @Override

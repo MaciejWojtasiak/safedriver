@@ -4,9 +4,9 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/person"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/person"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
         <activity android:name=".MainActivity">
@@ -28,6 +28,13 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".help.HelpInstruction0" />
         <activity android:name=".AlarmActivity" />
+
+        <service android:name=".services.AlarmService" />
+
+        <receiver android:name=".services.StartAlarmListener" >
+
+        </receiver>
+        <receiver android:name=".services.StopAlarmListener" />
         <activity android:name=".AboutApplication"></activity>
     </application>
 

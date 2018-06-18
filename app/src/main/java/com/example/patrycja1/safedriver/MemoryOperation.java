@@ -27,4 +27,9 @@ public class MemoryOperation {
         String data= sharedPref.getString(key,defaultValue);
         return data;
     }
+
+    public void deleteData(Context context){
+        SharedPreferences preferences = context.getSharedPreferences("general_preferences", 0);
+        preferences.edit().clear().commit();
+    }
 }

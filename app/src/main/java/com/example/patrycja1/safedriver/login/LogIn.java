@@ -40,14 +40,7 @@ public class LogIn extends AppCompatActivity {
         //animate activity elements
         animateElements(viewElements);
         animateElements(userDataElements);
-       /* viewElements[4].setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-                }
-
-            }
-        });*/
 
     }
 

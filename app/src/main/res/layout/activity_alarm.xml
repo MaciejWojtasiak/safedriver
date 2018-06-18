@@ -7,30 +7,59 @@
     android:background="@drawable/helptlo"
     tools:context="com.example.patrycja1.safedriver.AlarmActivity">
 
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="281dp"
-        android:layout_height="325dp"
-        app:srcCompat="@drawable/hex2"
-        tools:layout_editor_absoluteX="65dp"
-        tools:layout_editor_absoluteY="42dp" />
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="312dp"
+        android:layout_height="75dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/amethysta"
+        android:gravity="center"
+        android:text="Aby wyłączyć alarm naciśnij timer"
+        android:textColor="@android:color/holo_orange_light"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.864" />
 
     <ImageView
-        android:id="@+id/imageView7"
-        android:layout_width="336dp"
-        android:layout_height="374dp"
-        app:srcCompat="@drawable/alarmxddd"
-        tools:layout_editor_absoluteX="37dp"
-        tools:layout_editor_absoluteY="16dp" />
+        android:id="@+id/timImg"
+        android:layout_width="362dp"
+        android:onClick="stopAlarm"
+        android:layout_height="357dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.261"
+        app:srcCompat="@drawable/alarmxddd" />
 
     <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/timeralarm"
+        android:layout_width="94dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/amethysta"
         android:text="30:00"
-        android:textSize="35sp"
+        android:textColor="@android:color/black"
+        android:textSize="30sp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="160dp"
-        tools:layout_editor_absoluteY="179dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.407" />
 
 </android.support.constraint.ConstraintLayout>
