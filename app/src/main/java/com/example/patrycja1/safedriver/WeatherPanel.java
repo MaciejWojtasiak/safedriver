@@ -66,30 +66,8 @@ public class WeatherPanel extends AppCompatActivity {
         asyncTask.execute("51.9537506", "19.1343787"); //  asyncTask.execute("Latitude", "Longitude")
 
     }
-    private class Location {
 
-        private LocationManager locationManager;
-        private LocationListener listener;
-
-        locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
-
-        LocationManager locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
-
-
-        LocationListener locationListener = new LocationListener() {
-
-            public void onLocationChanged(Location location) {
-            }
-
-            public void onStatusChanged(String provider, int status, Bundle extras) {}
-
-            public void onProviderEnabled(String provider) {}
-
-            public void onProviderDisabled(String provider) {}
-        };
-
-
-            }
+            
 
 
 }
