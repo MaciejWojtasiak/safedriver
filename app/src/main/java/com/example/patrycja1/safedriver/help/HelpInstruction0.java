@@ -6,59 +6,39 @@ import android.os.Handler;
 import android.speech.tts.TextToSpeech;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.patrycja1.safedriver.HelpObjects;
+import com.example.patrycja1.safedriver.MemoryOperation;
 import com.example.patrycja1.safedriver.R;
+import com.example.patrycja1.safedriver.WeatherPanel;
 
 import java.util.Locale;
 
 public class HelpInstruction0 extends AppCompatActivity {
 
     private ImageView helpImage;
-    private TextView helpInstuction;
     private TextView helpInfo;
-    private long millis;
-    private int seconds;
+    private ImageView goFuture;
     private TextView help0text;
     private TextToSpeech komunikat1;
-
-    Handler timerHandler = new Handler();
-    Runnable timerRunnable = new Runnable() {
-        @Override
-        public void run() {
-            millis = System.currentTimeMillis();
-            seconds = (int) (millis / 1000);
-            int minutes = seconds / 60;
-            //seconds = seconds % 60;
-            int count = 1;
-            if ((seconds == 0 || seconds % 30 == 0) && seconds < 150) {
-                setContainers(count);
-                count++;
-            }
-            timerHandler.postDelayed(this, 500);
-            if(seconds==150){
-                millis=0;
-                count=0;
-                timerHandler.removeCallbacks(timerRunnable);
-            }
-        }
-    };
-
+    private int instructionFlag=1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_help_instruction0);
-        helpImage=findViewById(R.id.help0Image);
-        helpInstuction=findViewById(R.id.help0text);
-        helpInfo=findViewById(R.id.instructionNumber);
+        helpImage = findViewById(R.id.help0Image);
+        helpInfo = findViewById(R.id.instructionNumber);
+        goFuture=findViewById(R.id.krok);
+        help0text = (TextView)findViewById(R.id.help0text);
         long startTime = System.currentTimeMillis();
-        timerHandler.postDelayed(timerRunnable, 0);
-        //setContainers(4);
-        Toast.makeText(getApplicationContext()," Uważnie wysłuchaj instrukcji ...", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), " Uważnie wysłuchaj instrukcji ...", Toast.LENGTH_SHORT).show();
+
+        final TextToSpeech finalKomunikat = komunikat1;
         komunikat1 = new TextToSpeech(this, new TextToSpeech.OnInitListener() {
             @Override
             public void onInit(int status) {
@@ -73,7 +53,6 @@ public class HelpInstruction0 extends AppCompatActivity {
                     }
                     else
                     {
-
                         komunikat1.setPitch(0.6f);
                         komunikat1.setSpeechRate(1.0f);
                         speak();
@@ -82,13 +61,27 @@ public class HelpInstruction0 extends AppCompatActivity {
 
             }
         });
-        help0text = (TextView)findViewById(R.id.help0text);
+
+        goFuture.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                instructionFlag++;
+                if(instructionFlag==6){
+                    //onDestroy();
+                    Intent intent = new Intent(getApplicationContext(), WeatherPanel.class);
+                    startActivity(intent);
+                }else {
+                    setContainers(instructionFlag);
+                    speak();
+                }
+            }
+        });
     }
 
     public void setContainers(int identify){
         HelpObjects help=HelpObjects.findHelpById(identify);
         this.helpImage.setImageResource(help.gethelpImageId());
-        this.helpInstuction.setText(help.getInstruction());
+        this.help0text.setText(help.getInstruction());
         this.helpInfo.setText(help.getInfo());
     }
 

@@ -19,6 +19,7 @@ import com.example.patrycja1.safedriver.AlarmActivity;
 import com.example.patrycja1.safedriver.MainActivity;
 import com.example.patrycja1.safedriver.R;
 import com.example.patrycja1.safedriver.WeatherPanel;
+import com.example.patrycja1.safedriver.login.LogIn;
 
 /**
  * Created by Patrycja1 on 04.06.2018.
@@ -88,7 +89,7 @@ public class AlarmService extends Service {
         notificationView.setOnClickPendingIntent(R.id.start, pendingstartIntent);
         notificationView.setOnClickPendingIntent(R.id.stop, pendingstopIntent);
         Notification noti =
-                new NotificationCompat.Builder(this, WeatherPanel.CHANNEL_ID)
+                new NotificationCompat.Builder(this, LogIn.CHANNEL_ID)
                         .setSmallIcon(R.drawable.person)
                         .setCustomContentView(notificationView)
                         .setContentIntent(pendingNotificationIntent)

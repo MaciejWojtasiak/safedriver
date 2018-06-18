@@ -14,7 +14,7 @@ public enum HelpObjects {
     KROK2(2,"Oceń czy poszkowodwany oddycha. Oceń prawidłowość oddechu wzrokiem, słuchem i czuciem. Pochyl się nad poszkodowanym, tak by wyczuć ruch wydychanego powietrza, jednocześnie obserwując ruchy klatki piersiowej.",R.drawable.push," KROK 2 "),
     KROK3(3,"Wykonaj 30 uciśnięć klatki piersiowej (splecione, wyprostowane w łokciach ręce ułuż na środku, uciskaj w tempie co najmniej 100 uciśnięć na minutę, tak aby ugięła się ona na głębokość co najmniej 5 cm) ",R.drawable.breathgive," KROK 3 "),
     KROK4(4,"Po wykonaniu 30 uciśnięć klatki piersiowej, wykonaj 2 oddechy ratownicze. Szczelnie obejmij swoimi ustami usta poszkodowanego i wdmuchnij tyle powietrza, aby uniosła sięklatka pierdsiowa poszkodowanego. ",R.drawable.breath," KROK 4 "),
-    KROK5(5," ",R.drawable.side," KROK 5 ");
+    KROK5(5,"Ułóż poszkodowanego w bezpiecznej pozycji i poczekaj na lekarza",R.drawable.side," KROK 5 ");
 
 
     private int id;

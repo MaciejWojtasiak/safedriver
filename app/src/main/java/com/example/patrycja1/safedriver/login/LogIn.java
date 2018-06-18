@@ -1,7 +1,10 @@
 package com.example.patrycja1.safedriver.login;
 
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -13,9 +16,10 @@ import com.example.patrycja1.safedriver.ElementAnimator;
 import com.example.patrycja1.safedriver.MemoryOperation;
 import com.example.patrycja1.safedriver.R;
 import com.example.patrycja1.safedriver.WeatherPanel;
+import com.example.patrycja1.safedriver.services.AlarmService;
 
 public class LogIn extends AppCompatActivity {
-
+    public static String CHANNEL_ID = "ChannelID";
     private ImageView[] viewElements=new ImageView[5];
     private TextView [] userDataElements=new TextView[5];
     private boolean loginStatus=false;
@@ -40,6 +44,18 @@ public class LogIn extends AppCompatActivity {
         //animate activity elements
         animateElements(viewElements);
         animateElements(userDataElements);
+
+        //build nottification
+        Intent intent = new Intent(getApplicationContext(), AlarmService.class);
+        startService(intent);
+        int importance = NotificationManager.IMPORTANCE_DEFAULT;
+        if (Build.VERSION.SDK_INT >= 26) {
+            NotificationChannel channel = new NotificationChannel(CHANNEL_ID, "My Channel", importance);
+            NotificationManager mNotificationManager = (NotificationManager) getSystemService(
+                    Context.NOTIFICATION_SERVICE);
+            mNotificationManager.createNotificationChannel(channel);
+        }
+
 
 
     }

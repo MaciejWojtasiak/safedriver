@@ -24,7 +24,7 @@
         app:srcCompat="@drawable/vitalsigns" />
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/krok"
         android:layout_width="269dp"
         android:layout_height="41dp"
         android:layout_marginBottom="8dp"

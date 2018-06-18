@@ -25,7 +25,7 @@ import com.example.patrycja1.safedriver.services.AlarmService;
 
 public class WeatherPanel extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-    public static String CHANNEL_ID = "ChannelID";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,17 +53,9 @@ public class WeatherPanel extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        Intent intent = new Intent(getApplicationContext(), AlarmService.class);
-        startService(intent);
 
-        int importance = NotificationManager.IMPORTANCE_DEFAULT;
 
-        if (Build.VERSION.SDK_INT >= 26) {
-            NotificationChannel channel = new NotificationChannel(CHANNEL_ID, "My Channel", importance);
-            NotificationManager mNotificationManager = (NotificationManager) getSystemService(
-                    Context.NOTIFICATION_SERVICE);
-            mNotificationManager.createNotificationChannel(channel);
-        }
+
     }
 
     @Override
