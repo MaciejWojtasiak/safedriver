@@ -1,7 +1,8 @@
 package com.example.patrycja1.safedriver;
 
 /**
- * Created by Patrycja1 on 04.06.2018.
+ * Interface for listening to global user actions
+ * @author Patrycja Mirkowska
  */
 
 public interface OnHomePressedListener {

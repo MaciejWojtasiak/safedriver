@@ -15,7 +15,10 @@ import java.net.URL;
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.Locale;
-
+/**
+ * This class is used to establish the icon of the panel and identify time of the day
+ * @author Mateusz Obolewicz
+ */
 
 
 public class Function {
@@ -26,7 +29,15 @@ public class Function {
             "http://api.openweathermap.org/data/2.5/weather?lat=%s&lon=%s&units=metric";
 
     private static final String OPEN_WEATHER_MAP_API = "fd3ae0657020407b5dcca400007fe4cd";
-
+    /** What does?
+     * the function sets the appropriate icon,
+     * depending on the weather. The icon informs the user about weather conditions
+     * set id, time (sunrise or sunset)
+     * To use this method you must set?
+     * @param sunrise
+     * @param sunset
+     * is a time (sunrise or sunset)
+     */
     public static String setWeatherIcon(int actualId, long sunrise, long sunset){
         int id = actualId / 100;
         String icon = "";
@@ -64,9 +75,11 @@ public class Function {
     }
 
 
-
-
-
+    /**
+     * This class performs operations on JSON objects.
+     * You will find, among others, methods for downloading and unpacking the object and for setting up fields
+     * @author Mateusz Obolewicz
+     */
     public static class placeIdTask extends AsyncTask<String, Void, JSONObject> {
 
         public AsyncResponse delegate = null;//Call back interface
@@ -75,9 +88,16 @@ public class Function {
             delegate = asyncResponse;//Assigning call back interfacethrough constructor
         }
 
+        /** What does?
+         * the function retrieves JSON objects that carry weather information,
+         * returns the corresponding error
+         * To use this method you must set?
+         * @param params
+         * Other
+         * @throws Exception if can not process JSON results
+         */
         @Override
         protected JSONObject doInBackground(String... params) {
-
             JSONObject jsonWeather = null;
             try {
                 jsonWeather = getWeatherJSON(params[0], params[1]);
@@ -89,6 +109,18 @@ public class Function {
             return jsonWeather;
         }
 
+
+        /** What does?
+         *  function parses the JSON object
+         * to the appropriate text fields displayed to the user,
+         * displays the temperature, geographic data, humidity, pressure.
+         * How it works?
+         * if JSONObject is not empty, the function "unpacks" it and assigns individual values carrying weather information to String variables
+         * To use this method you must set?
+         * @param json, which contains info abaut weather
+         * Other
+         * @throws  JSONException if can not process JSON results
+         */
         @Override
         protected void onPostExecute(JSONObject json) {
             try {
@@ -110,7 +142,7 @@ public class Function {
 
                 }
             } catch (JSONException e) {
-                //Log.e(LOG_TAG, "Cannot process JSON results", e);
+
             }
 
 
@@ -119,10 +151,20 @@ public class Function {
     }
 
 
-
-
-
-
+    /** What does?
+     * the function retrieves weather data from the server
+     * in the JSON object's form based on inscribed ranks and latitude
+     * on String format
+     * How it works?
+     * With the help of the Url object sets the address of the website from which the information is retrieved,
+     * then HttpURLConnection establishes the connection and the downloaded weather information is in the JSON format
+     * To use this method you must set?
+     * @param lat which is a latitude
+     * @param lon which is a longtiude
+     *            Other
+     *            @throws Exception if can not get JSON
+     *            @return JSONObject value ,which is a packet of information
+     */
     public static JSONObject getWeatherJSON(String lat, String lon){
         try {
             URL url = new URL(String.format(OPEN_WEATHER_MAP_URL, lat, lon));

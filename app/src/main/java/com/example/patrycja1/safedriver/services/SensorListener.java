@@ -9,7 +9,10 @@ import android.os.Handler;
 import android.widget.Toast;
 
 /**
- * Created by Patrycja1 on 04.06.2018.
+ * This class is about listening for the accelerometer and implementing the SensorEventListener.
+ * You'll find there methods to listen for accelerometer movements, accident detection, and accuracy changes
+ * @author Patrycja Mirkowska
+ * @see SensorEventListener
  */
 
 public class SensorListener implements SensorEventListener {
@@ -28,14 +31,37 @@ public class SensorListener implements SensorEventListener {
     boolean status;
     private static final int SHAKE_THRESHOLD = 600;
     Intent intent;
-
-    //    SensorEvent event;
     private AlarmService alarmService;
 
     public SensorListener(AlarmService alarmService) {
         this.alarmService = alarmService;
     }
 
+
+    /** What does?
+     * the function using the SensorEventListener library listens for accelerometer movements,
+     * retrieves current values of items returned by the accelerometer,
+     * and compares them with previous values retrieved. If the detection algorithm,
+     * ie the difference between the current and previous accelerometer values, is large iterates the accident flag,
+     * if it falls within the tolerance, the program iterates the interval (interval variable) flag,
+     * if the accelerator is idle iterates the stabilization variable.
+     * After 5 flags of the accident and 23 flags of stabilization an alarm is triggered and the flags are reset.
+     * The genesis of the accident - some very large movements of the accelerometer and several dozen stabilizations.
+     * How it works?
+     * creates variables, modes of operation and values from the accelerometer. If the data is received correctly,
+     * it saves them to variables and then to the variables last x, y, z. Based on the difference between last and current,
+     * it identifies the action mode. when the action is detected, activates the alarm activity.
+     * It may throw an exception if the data is not received correctly
+     * To use this method you must set?
+     * @param sensorEvent from device
+     * Other
+     * @throws Exception while can't get accelerometer values
+     *  @see Sensor
+     *  @see SensorEventListener
+     *  @see SensorEvent
+     *  @see SensorManager
+     *  @see Math
+     */
     @Override
     public void onSensorChanged(SensorEvent sensorEvent) {
         Sensor mySensor = sensorEvent.sensor;
@@ -49,7 +75,7 @@ public class SensorListener implements SensorEventListener {
                 if ((curTime - lastUpdate) > 100) {
                     long diffTime = (curTime - lastUpdate);
                     lastUpdate = curTime;
-
+                    // this complicated algorithm detects flags.
                     float speed = Math.abs(x + y + z - last_x - last_y - last_z) / diffTime * 10000;
 
                     if (speed > SHAKE_THRESHOLD) {
@@ -82,12 +108,20 @@ public class SensorListener implements SensorEventListener {
             }
         }
     }
-
+    /** What does?
+     *Override on Accuracy Changed Method
+     */
     @Override
     public void onAccuracyChanged(Sensor sensor, int i) {
 
     }
 
+    /** What does?
+     * accident detection
+     * How it works?
+     * start listening from AlarmService
+     * @see AlarmService
+     */
     private void onDetect(){
         alarmService.start();
     }

@@ -22,17 +22,34 @@ import com.example.patrycja1.safedriver.WeatherPanel;
 import com.example.patrycja1.safedriver.login.LogIn;
 
 /**
- * Created by Patrycja1 on 04.06.2018.
+ * This class inherits from the Service and allows background activity controlled by a notification.
+ * In this class you will find methods such as creating notifications,
+ * downloading contexts, linking notification and service activities, enabling you to listen
+ * @author Patrycja Mirkowska
  */
 
 public class AlarmService extends Service {
+
     private SensorManager sensorManager;
     private long lastUpdate;
     private SensorEventListener listen;
     private Notification notification;
 
 
-
+    /** What does?
+     * the method starts to control the application by the user,
+     * creates a custom notification and sets the required values.
+     * Starts listening for the accelerometer and accident detection
+     * How it works?
+     * initializes the listener variables and sensorManager
+     * To use this method you must set?
+     * @param intent
+     * @param flags
+     * @param startId
+     * Other
+     * @throws Exception
+     * @return int value which is flag on start command
+     */
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         try {
@@ -50,12 +67,20 @@ public class AlarmService extends Service {
         }
     }
 
+
+    /** What does?
+     * on bind method
+     */
     @Nullable
     @Override
     public IBinder onBind(Intent intent) {
         return null;
     }
-
+    /** What does?
+     * resumption of listening
+     * How it works?
+     * activates the alarm activity for a new task flag
+     */
     public void start(){
         Intent intent = new Intent(getApplicationContext(), AlarmActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -63,19 +88,43 @@ public class AlarmService extends Service {
 
     }
 
+    /** What does?
+     * getter method
+     * How it works?
+     * returned application context
+     */
     public Context getApplicationContext(){
         return super.getApplicationContext();
     }
 
-
+    /** What does?
+     * this method combines a notification with the created site
+     * How it works?
+     * creates and initializes the NotificationManager object, then using the notify method displays the notification,
+     * which it accepts as a parameter with the given id
+     * To use this method you must set?
+     * @param notification
+     * this param is created notification
+     */
     private void callNotification(Notification notification){
         String ns = Context.NOTIFICATION_SERVICE;
         NotificationManager notificationManager = (NotificationManager) getSystemService(ns);
-
         notificationManager.notify(1, notification);
     }
-
+    /** What does?
+     * the method creates a custom notification,
+     * sets individual system fields, sets the listener,
+     * binds with the pause action and the resume action
+     * How it works?
+     * creates and initializes variables. PendingIntent and RemoteViews allow you to display notifications on the notification status bar.
+     * Next, the Notification object is created and its values are set, among others, the icon. Finally, the notification is pushed out
+     * @see PendingIntent
+     * @see RemoteViews
+     * @see Notification
+     * @see NotificationManager
+     */
     private void createNotification4(){
+
         String longText = "Intent service has a new message with:";
         RemoteViews notificationView = new RemoteViews(getPackageName(), R.layout.notification_switch);
         Intent notificationIntent = new Intent(this, WeatherPanel.class);
@@ -86,7 +135,7 @@ public class AlarmService extends Service {
         Intent stopIntent = new Intent(this, StopAlarmListener.class);
         PendingIntent pendingstopIntent = PendingIntent.getBroadcast(this, 0, stopIntent, 0);
 
-
+        // create noti
         notificationView.setOnClickPendingIntent(R.id.start, pendingstartIntent);
         notificationView.setOnClickPendingIntent(R.id.stop, pendingstopIntent);
         Notification noti =
@@ -97,7 +146,7 @@ public class AlarmService extends Service {
                         .build();
 
         // Hide the notification after its selected
-        noti.flags |= Notification.FLAG_NO_CLEAR;
+        noti.flags |= Notification.FLAG_AUTO_CANCEL;
 
         NotificationManager mNotificationManager =
                 (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);

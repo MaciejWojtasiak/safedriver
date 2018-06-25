@@ -18,6 +18,11 @@ import com.example.patrycja1.safedriver.WeatherPanel;
 
 import java.util.Locale;
 
+/**
+ * This class generates first aid instructions.
+ * You will find methods for creating activities, setting components (texts, pictures, etc.) and playing voice instructions.
+ * @author Patrycja Mirkowska and Maciej Wojtasiak
+ */
 public class HelpInstruction0 extends AppCompatActivity {
 
     private ImageView helpImage;
@@ -27,6 +32,14 @@ public class HelpInstruction0 extends AppCompatActivity {
     private TextToSpeech komunikat1;
     private int instructionFlag=1;
 
+    /**What does?
+     * this method creates activity binds the components
+     * to the corresponding variables and plays the voice instructions
+     * How it works?
+     * initializes variables with the method findViewById
+     * using TextToSpeech and speaks the message after pressing the button
+     * @see TextToSpeech
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,9 +53,21 @@ public class HelpInstruction0 extends AppCompatActivity {
 
         final TextToSpeech finalKomunikat = komunikat1;
         komunikat1 = new TextToSpeech(this, new TextToSpeech.OnInitListener() {
+
+            /**What does?
+             * if the message is downloaded correctly, the Polish language is chosen and a message is given
+             * To use this method you must set?
+             * @param status
+             * which informs about the download status of the message
+             * How it works?
+             * if the message download status == succes with the setLanguage option that accepts as a parameter,
+             * the Locale object sets the language and country parameters
+             * Then he sets the pitch and speed of speaking and starts speaking instructions through the speak function
+             * if can not downloading language show message " This language is not supported"
+             * @see Locale
+             */
             @Override
             public void onInit(int status) {
-
                 if(status == komunikat1.SUCCESS){
                     int result = komunikat1.setLanguage(new Locale("PL","PL"));
                     if(result == TextToSpeech.LANG_MISSING_DATA ||
@@ -67,7 +92,6 @@ public class HelpInstruction0 extends AppCompatActivity {
             public void onClick(View v) {
                 instructionFlag++;
                 if(instructionFlag==6){
-                    //onDestroy();
                     Intent intent = new Intent(getApplicationContext(), WeatherPanel.class);
                     startActivity(intent);
                 }else {
@@ -78,6 +102,16 @@ public class HelpInstruction0 extends AppCompatActivity {
         });
     }
 
+    /** What does?
+     * this method, by downloading the appropriate identification number,
+     * sets the required text, picture and instruction number in the first aid activity.
+     * To use this method you must set?
+     * @param identify
+     * which identifies the instruction in the set
+     * @see HelpObjects
+     * How it works?
+     * reference values set to variables
+     */
     public void setContainers(int identify){
         HelpObjects help=HelpObjects.findHelpById(identify);
         this.helpImage.setImageResource(help.gethelpImageId());
@@ -85,6 +119,13 @@ public class HelpInstruction0 extends AppCompatActivity {
         this.helpInfo.setText(help.getInfo());
     }
 
+    /**What does?
+     * this method retrieves the required text from the textView, then plays it back in voice form
+     * How it works?
+     * depending on the version, sdk calls the speakText method on the TextToSpeech object from the TextToSpeech class that accepts,
+     * among other things, the text of the instruction and delivers the message
+     * @see TextToSpeech
+     */
     private void speak() {
         String text=help0text.getText().toString();
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
@@ -93,6 +134,11 @@ public class HelpInstruction0 extends AppCompatActivity {
             komunikat1.speak(text,TextToSpeech.QUEUE_FLUSH,null);
     }
 
+    /**What does?
+     * this feature ends the message
+     * How it works?
+     * when the message contains a value, it is destroyed by using the function stop() and shutdown();
+     */
     @Override
     protected void onDestroy() {
         if(komunikat1 != null)

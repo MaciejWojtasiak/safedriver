@@ -11,11 +11,22 @@ import android.widget.Toast;
 
 import com.example.patrycja1.safedriver.help.HelpInstruction0;
 import com.example.patrycja1.safedriver.login.LogIn;
-
+/** This is the first login activity class supports the log/register buttons
+ * @author Patrycja Mirkowska
+ */
 public class MainActivity extends AppCompatActivity {
     private TextView signIn;
     private Button logInButton;
     private MemoryOperation memoryOperation;
+
+
+    /** What does?
+     * creates a new activity, sets up components,
+     * binds them to variables,
+     * also contains the action methods of the button and the transition between activities
+     * @see Intent
+     * @see MemoryOperation
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

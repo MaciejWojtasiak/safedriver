@@ -37,6 +37,7 @@ import android.view.Menu;
 
 import android.view.MenuItem;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import com.example.patrycja1.safedriver.help.HelpInstruction0;
@@ -45,7 +46,10 @@ import com.example.patrycja1.safedriver.login.LogIn;
 
 import com.example.patrycja1.safedriver.services.AlarmService;
 
-
+/**The main activity of the application is the weather panel,
+ * displays weather information and takes away the ejected menu of transitions.
+ * @author Mateusz Obolewicz
+ */
 
 public class WeatherPanel extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -54,6 +58,17 @@ public class WeatherPanel extends AppCompatActivity
     //Typeface weatherFont;
     TextView hello;
 
+    /** What does?
+     * this function creates activity binds the components
+     * to the corresponding variables
+     * and set weather info to activity !
+     * How it works?
+     * creates a new activity, binds elements with components using findViewById creates variables, initiates them,
+     * starts downloading weather data based on the entered values of latitude and longitude,
+     * displays the welcome text after downloading the user's name from the phone memory using the local library MemoryOperation
+     * @see MemoryOperation
+     * @see Function
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,7 +77,7 @@ public class WeatherPanel extends AppCompatActivity
         setSupportActionBar(toolbar);
         getSupportActionBar().hide();
 
-
+        Toast.makeText(getApplicationContext(),"Pobieram info o pogodzie...", Toast.LENGTH_SHORT).show();
 
 
 
@@ -103,7 +118,7 @@ public class WeatherPanel extends AppCompatActivity
         MemoryOperation mem=new MemoryOperation();
         String welcome="Witaj "+mem.readFromMemory(getApplicationContext(),"FIRSTNAME");
         hello.setText(welcome);
-
+        // set and set weather info to some activity fields
         Function.placeIdTask asyncTask =new Function.placeIdTask(new Function.AsyncResponse() {
             public void processFinish(String weather_city, String weather_description, String weather_temperature, String weather_humidity, String weather_pressure, String weather_updatedOn, String weather_iconText, String sun_rise) {
                 cityField.setText(weather_city);
@@ -122,11 +137,11 @@ public class WeatherPanel extends AppCompatActivity
     }
 
 
-
+    /** What does?
+     * controls the DrawerLayout menu
+     */
     @Override
-
     public void onBackPressed() {
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
@@ -137,9 +152,12 @@ public class WeatherPanel extends AppCompatActivity
     }
 
 
-
+    /** What does?
+     * Inflate the menu; this adds items to the action bar if it is present.
+     * @param menu
+     * @return boolean values
+     */
     @Override
-
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.weather_panel, menu);
@@ -148,13 +166,16 @@ public class WeatherPanel extends AppCompatActivity
     }
 
 
-
+    /** What does?
+     * Handle action bar item clicks here. The action bar will
+     * automatically handle clicks on the Home/Up button, so long
+     * as you specify a parent activity in AndroidManifest.xml.
+     * To use this method you must set?
+     * @param item is selected
+     */
     @Override
-
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
+
         int id = item.getItemId();
 
 
@@ -167,7 +188,9 @@ public class WeatherPanel extends AppCompatActivity
     }
 
 
-
+    /** What does?
+    *Handle navigation view item clicks here.
+    */
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
